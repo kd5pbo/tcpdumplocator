@@ -7,6 +7,6 @@ from http://dev.maxmind.com/geoip/geoip2/geolite2/
 This file will have more documentation eventually.
 
 Usage:
-{{{
+```
 tcpdump -lnni em0 'udp' | ./tcpdumplocator
-}}}
+```
