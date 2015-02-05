@@ -90,7 +90,6 @@ func mymain() int {
 	}
 	/* Read from stdin */
 	scanner := bufio.NewScanner(os.Stdin)
-SCAN:
 	for scanner.Scan() {
 		l := scanner.Text()
 		/* Dig addresses out of the line */
@@ -100,11 +99,12 @@ SCAN:
 			continue
 		}
 		/* Handle the seen addresses */
+	ADDRS:
 		for _, a := range addrs {
 			/* Ignore excluded addresses */
 			for _, r := range ignoreRegex {
 				if r.MatchString(a) {
-					continue SCAN
+					continue ADDRS
 				}
 			}
 			seen_addr(a)
