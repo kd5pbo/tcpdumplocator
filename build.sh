@@ -25,6 +25,9 @@ GOARCH=amd64
 
 for GOOS in windows linux darwin; do
         O=tcpdumplocator.$GOOS.amd64
+        if [[ "$GOOS" == "windows" ]]; then
+                O=$O.exe
+        fi
         echo Building $O
         go build -o $O  tcpdumplocator.go
 done
